@@ -9,21 +9,13 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(FakeRepoInterface fakeRepo){
         this.fakeRepo = fakeRepo;
     }
-    @Cacheable("name")
+
     @Override
     public String addUser(long Id, String name, String surname) {
         fakeRepo.insertUser(1, "shirley", "ndou");
+        fakeRepo.insertUser(2, "John", "Doe");
+        fakeRepo.insertUser(3, "Mary", "Jane");
         System.out.println(name + "entered");
-        try
-        {
-            System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");
-            Thread.sleep(1000*5);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-
         return name;
     }
 
@@ -35,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Cacheable("name")
     @Override
-    public long getUser(long Id) {
+    public String getUser(long Id) {
         System.out.println("hello " + fakeRepo.findUserById(1).getName());
         try
         {
@@ -46,7 +38,6 @@ public class UserServiceImpl implements UserService {
         {
             e.printStackTrace();
         }
-
-        return Id;
+        return fakeRepo.findUserById(1).getName();
     }
 }
