@@ -62,8 +62,8 @@ class UserServiceImplTest {
     private TestRestTemplate template;
     @Test
     public void shouldAuthenticate(){
-        String name = userService.addUser(1,"shirley", "ndou");
-        System.out.println(base);
+       /* String name = userService.addUser(1,"shirley", "ndou");
+        System.out.println(name);*/
         ResponseEntity<String> response = template.withBasicAuth("spring", "secret").getForEntity(base.toString(), String.class);
     }
 
