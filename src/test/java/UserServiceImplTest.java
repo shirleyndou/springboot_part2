@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest(classes = Main.class)
+@SpringBootTest(classes = Main.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class UserServiceImplTest {
 
     @Autowired
