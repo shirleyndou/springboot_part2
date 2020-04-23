@@ -17,11 +17,11 @@ public class FakeRepo implements FakeRepoInterface {
 
     //find the user by Id
     @Override
-    public User findUserById(long Id) {
+    public String findUserById(long Id) {
         for(User value : user){
             if(value.getId() == Id){
                 System.out.println("User found: " + value.getName());
-                return value;
+                return "Hello " + value.getName();
             }
         }
         return null;

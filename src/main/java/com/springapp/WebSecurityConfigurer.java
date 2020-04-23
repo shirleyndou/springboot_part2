@@ -9,15 +9,15 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication()
                 .passwordEncoder(encoder)
-                .withUser("spring")
-                .password(encoder.encode("secret"))
+                .withUser("shirleyndou")
+                .password(encoder.encode("150696#ts"))
                 .roles("USER");
     }
 

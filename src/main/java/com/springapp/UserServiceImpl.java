@@ -27,10 +27,10 @@ public class UserServiceImpl implements UserService {
         System.out.println(getUser(Id) + " removed");
     }
 
-    @Cacheable("name")
     @Override
+    @Cacheable("name")
     public String getUser(long Id) {
-        System.out.println("hello " + fakeRepo.findUserById(1).getName());
+       // System.out.println("hello " + fakeRepo.findUserById(Id).getName());
         try
         {
             System.out.println("Going to sleep for 5 Secs.. to simulate backend call.");
@@ -40,6 +40,6 @@ public class UserServiceImpl implements UserService {
         {
             e.printStackTrace();
         }
-        return fakeRepo.findUserById(1).getName();
+        return fakeRepo.findUserById(Id);
     }
 }
